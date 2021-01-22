@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>shino16&#39;s blog</title>
+  <title>shino16</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -40,15 +40,15 @@
 <link rel="stylesheet" href="/blog/css//custom.css">
 
 
-<meta property="og:title" content="shino16&#39;s blog" />
+<meta property="og:title" content="shino16" />
 <meta property="og:description" content="競プロなど" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://shino16.github.io/blog/" />
 <meta property="og:updated_time" content="2020-11-03T23:45:00+09:00" />
-<meta itemprop="name" content="shino16&#39;s blog">
+<meta itemprop="name" content="shino16">
 <meta itemprop="description" content="競プロなど">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="shino16&#39;s blog"/>
+<meta name="twitter:title" content="shino16"/>
 <meta name="twitter:description" content="競プロなど"/>
 
 <!--[if lte IE 9]>
@@ -61,10 +61,16 @@
 <![endif]-->
 
 </head>
-<body>
+<body onload="onload()">
+  <script>
+  function onload() {
+    document.getElementById("footer-email").setAttribute("href", "mailto:" + "masatosinokawa" + "@" + "gmail.com");
+  }
+  </script>
+  
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/blog/" class="logo">shino16&#39;s blog</a>
+    <a href="/blog/" class="logo">shino16</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -93,7 +99,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/blog/" class="logo">shino16&#39;s blog</a>
+  <a href="/blog/" class="logo">shino16</a>
 </div>
 
 
@@ -232,29 +238,30 @@
 
     <footer id="footer" class="footer">
       <div class="social-links">
-        <a href="http://twitter.com/shino_personal" class="iconfont icon-twitter" title="twitter"></a>
-        <a href="http://github.com/shino16" class="iconfont icon-github" title="github"></a>
-  </div>
+      <a href="mailto:masatosinokawa%28at%29gmail.com" id="footer-email" class="iconfont icon-email" title="email"></a>
+      <a href="http://twitter.com/shino_personal" id="footer-twitter" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://github.com/shino16" id="footer-github" class="iconfont icon-github" title="github"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
   
-  <div class="copyright">
-    <span class="power-by">
-      Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-    </span>
-    <span class="division">|</span>
-    <span class="theme-info">
-      Theme - 
-      <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-    </span>
-  
-    
-  
-    <span class="copyright-year">
-      &copy; 
-      2020 - 
-      2021<span class="heart"><i class="iconfont icon-pencil"></i></span><span>shino16</span>
-    </span>
-  </div>
-  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-pencil"></i></span><span>shino16</span>
+  </span>
+</div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">

@@ -50,7 +50,7 @@
 <meta itemprop="description" content="競プロ用の入出力ライブラリ（Rust）を作る 要件 長年抱えてる葛藤が、貼る用のライブラリをゴテゴテに作りこむか、簡潔にとどめたほうが綺麗かとい">
 <meta itemprop="datePublished" content="2020-10-18T00:00:00+09:00" />
 <meta itemprop="dateModified" content="2020-10-18T00:00:00+09:00" />
-<meta itemprop="wordCount" content="800">
+<meta itemprop="wordCount" content="809">
 
 
 
@@ -222,7 +222,7 @@
 <p>純粋に IO の速度を測るなら、<a href="https://judge.yosupo.jp/problem/many_aplusb">Many A + B</a> を使うべきでしょう。</p>
 <h2 id="設計">設計</h2>
 <ul>
-<li>初期化時に入力をすべて受け取って <code>Box::leak</code> する（これどうなの？）
+<li>初期化時に入力をすべて受け取って <code>Box::leak</code> する
 <ul>
 <li>ライフタイムであ&quot;～ってなった時、とりあえずこうすると楽になる</li>
 </ul>
@@ -243,16 +243,15 @@
 </ul>
 <h2 id="いまいちな点">いまいちな点</h2>
 <ul>
-<li>入力を丸ごと <code>leak</code> していますが
+<li>入力を丸ごと <code>leak</code> している
 <ul>
-<li>どれくらい良くないのかすらわかりません、気が咎める</li>
 <li>高々 $10^5$ 程度のオーダーということで…</li>
+<li><code>*mut str</code> を持っておいて最後に <code>Box::from_raw</code> すれば drop されるが、<code>IO</code> は入力の一部を <code>&amp;'static [u8]</code> として返すのでまずい</li>
 </ul>
 </li>
 <li>入力と出力は分離するべきじゃないの？
 <ul>
-<li>実際互いに完全に独立している</li>
-<li>別オブジェクトだとめんどくさいだけ</li>
+<li>実際互いに完全に独立しているが、別オブジェクトだとめんどくさいだけ</li>
 </ul>
 </li>
 <li><code>Scan::scan</code> や <code>Print::print</code> が <code>&amp;mut IO</code> を受け取る必要はないのでは？

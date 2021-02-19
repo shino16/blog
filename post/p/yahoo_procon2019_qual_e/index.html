@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="shino16" /><meta name="description" content="行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が与えられ" />
+<meta name="author" content="shino16" /><meta name="description" content="考察 行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことなどを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が" />
 
 
 
@@ -41,23 +41,23 @@
 
 
 <meta property="og:title" content="みんプロ2019 E - Odd Subrectangles" />
-<meta property="og:description" content="行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が与えられ" />
+<meta property="og:description" content="考察 行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことなどを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://shino16.github.io/blog/post/p/yahoo_procon2019_qual_e/" />
 <meta property="article:published_time" content="2021-02-19T15:29:27+09:00" />
 <meta property="article:modified_time" content="2021-02-19T15:29:27+09:00" />
 <meta itemprop="name" content="みんプロ2019 E - Odd Subrectangles">
-<meta itemprop="description" content="行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が与えられ">
+<meta itemprop="description" content="考察 行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことなどを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が">
 <meta itemprop="datePublished" content="2021-02-19T15:29:27+09:00" />
 <meta itemprop="dateModified" content="2021-02-19T15:29:27+09:00" />
-<meta itemprop="wordCount" content="327">
+<meta itemprop="wordCount" content="377">
 
 
 
 <meta itemprop="keywords" content="問題,数学,線型代数,数え上げ," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="みんプロ2019 E - Odd Subrectangles"/>
-<meta name="twitter:description" content="行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が与えられ"/>
+<meta name="twitter:description" content="考察 行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことなどを考えると、問題は次のように言い換えられます。 $N \times M$ の $\mathbb{F}_2$ 行列 $A$ が"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -150,18 +150,31 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">コンテンツ</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#考察">考察</a></li>
+        <li><a href="#別解">別解</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
       <div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_e" data-iframely-url="//cdn.iframe.ly/LkBzFTY"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-<p>行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことを考えると、問題は次のように言い換えられます。</p>
+<h2 id="考察">考察</h2>
+<p>行列に $(0,1)$—ベクトルを掛けていくつかの行・列を取り出すことなどを考えると、問題は次のように言い換えられます。</p>
 <blockquote>
 <p>$N \times M$ の $\mathbb{F}_2$ 行列 $A$ が与えられる。$vAw=1$ であるような行ベクトル $v \times \mathbb{F}_2^N$ と列ベクトル $w \in \mathbb{F}_2^M$ の組の個数を求めよ。</p>
 </blockquote>
-<p>$vA=0$ の場合、条件を満たす $w$ は明らかに $0$ 個です。$vA\neq0$ の場合には、条件を満たす $w$ は<strong>全体の半分である $2^{M-1}$ 個</strong>になります（$vA$ のある非零成分の位置に対応する $w$ の成分が $0$ か $1$ かで、$vAw$ の値が反転するため）。</p>
+<p>$vA=0$ の場合、条件を満たす $w$ は明らかに $0$ 個です。$vA\neq0$ の場合には、条件を満たす $w$ は<strong>全体の半分である $2^{M-1}$ 個</strong>になります（$vA$ のある非零成分の位置に対応する $w$ の成分は、それ以外を任意に決めると自動的に定まる）。</p>
 <p>$r=\mathrm{rank} A$ とおくと、次元定理より $vA=0$ となる $v$ の個数は $2^{N-r}$ となり、答えは $(2^N-2^{N-r})2^{M-1}$ です。掃き出し法はこの方法が簡単です。</p>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">xor の掃き出しすごい簡単に出来るんですね<br><br>vector&lt;int&gt; basis;<br>for(int e : a){<br> for(int b : basis)<br> chmin(e, e ^ b);<br> if(e)<br> basis.push_back(e);<br>}<br><br>これで数列 a の基底が basis に入る</p>&mdash; 熨斗袋 (@noshi91) <a href="https://twitter.com/noshi91/status/1200702280128856064?ref_src=twsrc%5Etfw">November 30, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h2 id="別解">別解</h2>
+<iframe src="https://hatenablog-parts.com/embed?url=https%3A%2F%2Fdrken1215.hatenablog.com%2Fentry%2F2019%2F02%2F10%2F024200" style="border: 0; width: 100%; height: 190px;" allowfullscreen scrolling="no"></iframe>
+<p>無理やり関連させると、$vAw$ を考える代わりに $(vP^{-1})(PAQ)(Q^{-1}w)$ を考えてもよい、ということになりそう。</p>
 
     </div>
 
@@ -238,7 +251,7 @@
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:masatosinokawa%28at%29gmail.com" id="footer-email" class="iconfont icon-email" title="email"></a>
-      <a href="http://twitter.com/0uB28K6jiyy5BNM" id="footer-twitter" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://twitter.com/s16_cp" id="footer-twitter" class="iconfont icon-twitter" title="twitter"></a>
       <a href="http://github.com/shino16" id="footer-github" class="iconfont icon-github" title="github"></a>
 </div>
 

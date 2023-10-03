@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.110.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
 
 
 <link rel="canonical" href="https://shino16.github.io/blog/post/math/%E6%9C%9F%E5%BE%85%E5%80%A4%E3%81%A8%E3%83%80%E3%83%96%E3%83%AB%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E9%B3%A9%E3%83%8E%E5%B7%A3%E5%8E%9F%E7%90%86%E3%81%AE%E9%96%A2%E4%BF%82/" />
@@ -46,6 +46,7 @@
 <meta property="og:url" content="https://shino16.github.io/blog/post/math/%E6%9C%9F%E5%BE%85%E5%80%A4%E3%81%A8%E3%83%80%E3%83%96%E3%83%AB%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E9%B3%A9%E3%83%8E%E5%B7%A3%E5%8E%9F%E7%90%86%E3%81%AE%E9%96%A2%E4%BF%82/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-10-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-10-01T00:00:00+00:00" />
+
 <meta itemprop="name" content="期待値とダブルカウント・鳩ノ巣原理の関係">
 <meta itemprop="description" content="深夜の算数クイズ 4 pic.twitter.com/nXIjPTlmoo &mdash; きり (@kiri8128) September 28, 2020 この問題をきっかけに期待値を利用した証明法についていくつか復習し、役割や鳩ノ巣原理との関係などを考えました"><meta itemprop="datePublished" content="2020-10-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-10-01T00:00:00+00:00" />
@@ -214,9 +215,9 @@ $$ E[X_1 + X_2 + \cdots + X_n] = E[X_1] + E[X_2] + \cdots + E[X_n] $$</p>
 <p>$2$ 変数の場合の証明：</p>
 <p>$$
 \begin{aligned}
-E[X+Y] &amp;= \sum_x \sum_y (x+y)P(X=x,Y=y) \\
-&amp;= \sum_x \sum_y xP(X=x,Y=y) + \sum_x \sum_y yP(X=x,Y=y) \\
-&amp;= \sum_x x P(X=x) + \sum_y y P(Y=y) \\
+E[X+Y] &amp;= \sum_x \sum_y (x+y)P(X=x,Y=y) \\ 
+&amp;= \sum_x \sum_y xP(X=x,Y=y) + \sum_x \sum_y yP(X=x,Y=y) \\ 
+&amp;= \sum_x x P(X=x) + \sum_y y P(Y=y) \\ 
 &amp;= E[X] + E[Y]
 \end{aligned}
 $$</p>
@@ -258,9 +259,9 @@ $$ a_1a_2 + a_2a_3 + \ldots + a_{n-1}a_n + a_na_1 &lt; 0 $$</p>
 <p>各 $i$ について $E[X_i] = \dfrac{n^2-n+1}{n^2}$ より、</p>
 <p>$$
 \begin{aligned}
-E[X] &amp;= E[X_1] + E[X_2] + \cdots + E[X_n] \\
-&amp;= n \cdot \frac{n^2-n+1}{n^2} \\
-&amp;= n - 1 + \frac{1}{n} \\
+E[X] &amp;= E[X_1] + E[X_2] + \cdots + E[X_n] \\ 
+&amp;= n \cdot \frac{n^2-n+1}{n^2} \\ 
+&amp;= n - 1 + \frac{1}{n} \\ 
 &amp;&gt; n - 1
 \end{aligned}
 $$</p>
@@ -358,7 +359,7 @@ $$</p>
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

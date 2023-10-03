@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.110.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
 
 
 <link rel="canonical" href="https://shino16.github.io/blog/post/work/intern-pfn/" />
@@ -46,10 +46,11 @@
 <meta property="og:url" content="https://shino16.github.io/blog/post/work/intern-pfn/" /><meta property="og:image" content="https://shino16.github.io/blog/img/pfn.jpg" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-10-03T12:00:00+09:00" />
 <meta property="article:modified_time" content="2023-10-03T12:00:00+09:00" />
+
 <meta itemprop="name" content="PFN2023夏季インターン参加記">
 <meta itemprop="description" content="しの (@shino1609) です。8月10日から9月29日まで、株式会社 Preferred Networks の夏季インターンシップに「CuPy の開発」というテーマで参加しました。 この記事では、業"><meta itemprop="datePublished" content="2023-10-03T12:00:00+09:00" />
 <meta itemprop="dateModified" content="2023-10-03T12:00:00+09:00" />
-<meta itemprop="wordCount" content="2510"><meta itemprop="image" content="https://shino16.github.io/blog/img/pfn.jpg">
+<meta itemprop="wordCount" content="2502"><meta itemprop="image" content="https://shino16.github.io/blog/img/pfn.jpg">
 <meta itemprop="keywords" content="就活," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://shino16.github.io/blog/img/pfn.jpg"/>
 
@@ -220,14 +221,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">cupy</span> <span class="k">as</span> <span class="nn">cp</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">       <span class="p">[</span> <span class="mf">3.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="p">([</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">cupy</span> <span class="k">as</span> <span class="nn">cp</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>この CuPy に新機能の追加などを行うというのがこのテーマの趣旨でした。NumPy は使ったことがあり、また競プロ繋がりで高速化やライブラリ管理には関心があるので、自分には向いていると考えました。</p>
 <p><a href="https://www.preferred.jp/wp-content/uploads/2023/03/831d7079054f3a9adf79bef7f143a578-1.pdf">募集テーマ一覧</a>では、必須要件として Python, NumPy, CUDA が、歓迎要件として NCCL, MPI, Metal が挙げられていました。CUDA については概要しか知りませんでしたが、とにかく応募を出し、テーマ別選考課題に沿って CUDA をがっつり勉強しました。</p>
@@ -242,13 +243,13 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>このように記述すると、<code>a[:5]</code> の部分が 0 番目のデバイスに、<code>a[5:10]</code> の部分が 1 番目のデバイスに配置されます。2 次元以上の場合も同様です。</p>
 <p><code>DistributedArray</code> は <code>ufunc</code> に対応しており、<code>A+B</code> や <code>sin(A)</code> といった要素ごとの演算が行えます。<code>A.sum(axis=0)</code> などの reduction や行列積 <code>A @ B</code> も、基本的なところをサポートしました。</p>
-<p>これに付随して <code>DistributedArray</code> 特有の概念がいくつかありますが、特に resharding という機能に苦労しました。業務の雰囲気が分かると思うので、resharding がどのようなものだったか簡単に説明します。</p>
+<p>これに付随して <code>DistributedArray</code> 特有の概念がいくつかありますが、特に <strong>resharding</strong> という機能に苦労しました。業務の雰囲気が分かると思うので、これがどのようなものだったか簡単に説明します。</p>
 <h3 id="resharding-再振り分け">Resharding (再振り分け)</h3>
 <p>以下の状況を考えます。</p>
 <div class="highlight"><div class="chroma">
@@ -258,10 +259,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
-</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
-</span></span><span class="line"><span class="cl"><span class="n">C</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">A</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">distributed_array</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><code>A+B</code> の計算は簡単で、デバイス 0 とデバイス 1 がそれぞれ <code>a[:5] + b[:5]</code> と <code>a[5:10] + b[5:10]</code> にあたる部分を計算すればよいです。しかし、<code>A+C</code> のように、各デバイスが持つ領域が一致していない場合は簡単にはいきません。そこで、次のようにします。</p>
 <div class="highlight"><div class="chroma">
@@ -269,8 +270,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">C2</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">reshard</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">index_map</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">C2</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">reshard</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">index_map</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>こうすると、<code>C</code> のデータが <code>A</code> に合わせて再配置されます。この例では、<code>c[5:7]</code> の部分をデバイス 0 からデバイス 1 に転送します。こうして得られた <code>C2</code> は <code>A</code> と同様に、<code>c[0:5]</code> の部分をデバイス 0 に、<code>c[5:10]</code> をデバイス 1 に持つようになります。<code>A+C2</code> は先ほどと同様で容易に行えます。</p>
 <p><code>reshard</code> は実装をかなり工夫しました。NCCL というライブラリを使ってデータを非同期的に転送し、データ転送とその直後の演算を並列に実行できるようにしています。例えば、次のコードを考えます。</p>
@@ -279,8 +280,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">A</span> <span class="o">+</span> <span class="n">C</span><span class="o">.</span><span class="n">reshard</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">index_map</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">A</span> <span class="o">+</span> <span class="n">C</span><span class="o">.</span><span class="n">reshard</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">index_map</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>このコードは以下のことを実行します。</p>
 <ol>
@@ -371,7 +372,7 @@
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

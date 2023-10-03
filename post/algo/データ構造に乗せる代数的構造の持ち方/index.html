@@ -51,7 +51,7 @@
 <meta itemprop="description" content="上の記事で D として書かれているものを、利用者側が構造体を書かなくてもよいような方法で実装してみました。 だいたい次のような見た目となります。詳"><meta itemprop="datePublished" content="2020-10-19T02:00:00+09:00" />
 <meta itemprop="dateModified" content="2021-02-19T21:30:00+09:00" />
 <meta itemprop="wordCount" content="488">
-<meta itemprop="keywords" content="アルゴリズム,実装," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ライブラリ,実装," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="データ構造に乗せる代数的構造の持ち方"/>
 <meta name="twitter:description" content="上の記事で D として書かれているものを、利用者側が構造体を書かなくてもよいような方法で実装してみました。 だいたい次のような見た目となります。詳"/>
 
@@ -219,7 +219,7 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">trait</span><span class="w"> </span><span class="n">Monoid</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nb">Copy</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">trait</span><span class="w"> </span><span class="n">Monoid</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nb">Copy</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">fn</span> <span class="nf">unit</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="k">fn</span> <span class="nf">op</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>: <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="k">fn</span> <span class="nf">op_to</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">op</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
@@ -269,7 +269,7 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="/blog/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+          <a href="/blog/tags/%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/">ライブラリ</a>
           <a href="/blog/tags/%E5%AE%9F%E8%A3%85/">実装</a>
           </div>
       <nav class="post-nav">

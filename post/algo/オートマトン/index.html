@@ -51,7 +51,7 @@
 <meta itemprop="description" content="まとめ 文字列の識別を DFA として表現することで、複数の条件や状態遷移を分けて記述し、これらの組み合わせで桁DPを構成するフレームワークが出来まし"><meta itemprop="datePublished" content="2020-10-02T00:00:00+09:00" />
 <meta itemprop="dateModified" content="2020-10-03T23:00:00+09:00" />
 <meta itemprop="wordCount" content="5284">
-<meta itemprop="keywords" content="アルゴリズム,文字列," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ライブラリ,文字列," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="オートマトン（DFA）での桁DPを理解する"/>
 <meta name="twitter:description" content="まとめ 文字列の識別を DFA として表現することで、複数の条件や状態遷移を分けて記述し、これらの組み合わせで桁DPを構成するフレームワークが出来まし"/>
 
@@ -284,8 +284,8 @@ DP には大きく $2$ つの実装方法、ループとメモ化再帰がある
 <p>状態集合、文字集合、受理状態の集合をそれぞれ次のように定義します。</p>
 <p>$$
 \begin{aligned}
-Q &amp;= \{q_0, q_1, q_2\} \\ 
-\Sigma &amp;= \{0, 1\} \\ 
+Q &amp;= \{q_0, q_1, q_2\} \\
+\Sigma &amp;= \{0, 1\} \\
 F &amp;= \{q_0\}
 \end{aligned}
 $$</p>
@@ -326,9 +326,9 @@ $$</p>
 <p>この $2$ つが<strong>どちらも受理する文字列を、その場合に限り</strong>受理する DFA $M = (Q, \Sigma, \delta, q_0, F)$ を構成してみます。$M_1$ &ldquo;かつ&rdquo; $M_2$ のイメージです。</p>
 <p>$$
 \begin{aligned}
-Q &amp;= Q_1 \times Q_2 \\ 
-\delta((q_{1i}, q_{2i}), a_i) &amp;= (\delta_1(q_{1i}, a_i), \delta_2(q_{2i}, a_i)) \\ 
-q_0 &amp;= (q_{10}, q_{20}) \\ 
+Q &amp;= Q_1 \times Q_2 \\
+\delta((q_{1i}, q_{2i}), a_i) &amp;= (\delta_1(q_{1i}, a_i), \delta_2(q_{2i}, a_i)) \\
+q_0 &amp;= (q_{10}, q_{20}) \\
 F &amp;= F_1 \cap F_2
 \end{aligned}
 $$</p>
@@ -356,7 +356,7 @@ $$</p>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">trait</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">trait</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">State</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="k">fn</span> <span class="nf">init</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span>::<span class="n">State</span><span class="p">;</span><span class="w">
@@ -411,7 +411,7 @@ $$</p>
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">HashMap</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">HashMap</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>:#<span class="err">️⃣</span>:<span class="nc">Hash</span><span class="p">;</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">fn</span> <span class="nf">count</span><span class="o">&lt;</span><span class="n">X</span>: <span class="nc">Dfa</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dfa</span>: <span class="kp">&amp;</span><span class="nc">X</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>: <span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">modulo</span>: <span class="kt">u32</span><span class="p">,</span><span class="w"> </span><span class="n">alphabet</span>: <span class="kp">&amp;</span><span class="p">[</span><span class="n">X</span>::<span class="n">Alphabet</span><span class="p">])</span><span class="w"> </span>-&gt; <span class="kt">u32</span>
@@ -483,7 +483,7 @@ $$</p>
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Ordering</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Ordering</span><span class="p">;</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">struct</span> <span class="nc">Leq</span><span class="o">&lt;&#39;</span><span class="na">a</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;&#39;</span><span class="na">a</span><span class="w"> </span><span class="p">[</span><span class="kt">u8</span><span class="p">]);</span><span class="w">
 </span><span class="w">
@@ -531,7 +531,7 @@ $$</p>
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">DigitSumMultipleOf</span><span class="p">(</span><span class="kt">u32</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">DigitSumMultipleOf</span><span class="p">(</span><span class="kt">u32</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">DigitSumMultipleOf</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">u8</span><span class="p">;</span><span class="w">
@@ -574,7 +574,7 @@ $$</p>
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">And</span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">And</span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">X</span>: <span class="nc">Dfa</span><span class="o">&lt;</span><span class="n">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span>: <span class="nc">Dfa</span><span class="o">&lt;</span><span class="n">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span>: <span class="nb">Copy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">And</span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w">
@@ -616,7 +616,7 @@ $$</p>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">proconio</span>::<span class="p">{</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">marker</span>::<span class="n">Bytes</span><span class="p">};</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">use</span><span class="w"> </span><span class="n">proconio</span>::<span class="p">{</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">marker</span>::<span class="n">Bytes</span><span class="p">};</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="n">input</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -667,7 +667,7 @@ $$</p>
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">Not</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">X</span>: <span class="nc">Dfa</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Not</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span>::<span class="n">Alphabet</span><span class="p">;</span><span class="w">
@@ -716,7 +716,7 @@ $$</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">Lt</span><span class="o">&lt;&#39;</span><span class="na">a</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;&#39;</span><span class="na">a</span><span class="w"> </span><span class="p">[</span><span class="kt">u8</span><span class="p">]);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">Lt</span><span class="o">&lt;&#39;</span><span class="na">a</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;&#39;</span><span class="na">a</span><span class="w"> </span><span class="p">[</span><span class="kt">u8</span><span class="p">]);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Lt</span><span class="o">&lt;&#39;</span><span class="nb">_</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">u8</span><span class="p">;</span><span class="w">
@@ -760,7 +760,7 @@ $$</p>
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">MultipleOf</span><span class="p">(</span><span class="kt">u32</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">MultipleOf</span><span class="p">(</span><span class="kt">u32</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MultipleOf</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">u8</span><span class="p">;</span><span class="w">
@@ -798,7 +798,7 @@ $$</p>
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">proconio</span>::<span class="p">{</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">marker</span>::<span class="n">Bytes</span><span class="p">};</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">use</span><span class="w"> </span><span class="n">proconio</span>::<span class="p">{</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">marker</span>::<span class="n">Bytes</span><span class="p">};</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="n">input</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -861,7 +861,7 @@ $$</p>
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">SameMsb</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">SameMsb</span><span class="p">;</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">SameMsb</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">);</span><span class="w">
@@ -910,7 +910,7 @@ $$</p>
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">Subset</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">Subset</span><span class="p">;</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Subset</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">);</span><span class="w">
@@ -956,7 +956,7 @@ $$</p>
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="nc">Prod</span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="k">struct</span> <span class="nc">Prod</span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">X</span>: <span class="nc">Dfa</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span>: <span class="nc">Dfa</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Dfa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Prod</span><span class="o">&lt;</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="k">type</span> <span class="nc">Alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">X</span>::<span class="n">Alphabet</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span>::<span class="n">Alphabet</span><span class="p">);</span><span class="w">
@@ -1000,9 +1000,9 @@ $$</p>
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-rs" data-lang="rs"><span class="w">
 </span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">proconio</span>::<span class="n">input</span><span class="p">;</span><span class="w">
-</span><span class="w"> 
+</span><span class="w">
 </span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">    </span><span class="n">input</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">        </span><span class="n">l</span>: <span class="kt">u64</span><span class="p">,</span><span class="w">
@@ -1027,7 +1027,7 @@ $$</p>
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="/blog/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+          <a href="/blog/tags/%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/">ライブラリ</a>
           <a href="/blog/tags/%E6%96%87%E5%AD%97%E5%88%97/">文字列</a>
           </div>
       <nav class="post-nav">

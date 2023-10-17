@@ -6,7 +6,19 @@
     <description>Recent content in Posts on shino16</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 03 Oct 2023 12:00:00 +0900</lastBuildDate><atom:link href="https://shino16.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 15:00:00 +0100</lastBuildDate><atom:link href="https://shino16.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My in PFN 2023 Summer Internship Experience</title>
+      <link>https://shino16.github.io/blog/post/work/intern-pfn-en/</link>
+      <pubDate>Tue, 17 Oct 2023 15:00:00 +0100</pubDate>
+      
+      <guid>https://shino16.github.io/blog/post/work/intern-pfn-en/</guid>
+      <description>Japanese version
+I completed a summer internship at Preferred Networks from August 10th to September 29th, focusing on the development of CuPy.
+ I selected Preferred Networks for my summer internship due to its established reputation in the Japanese machine learning and competitive programming community and the appealing nature of their internship projects.
+Project Focus: &amp;ldquo;CuPy Development&amp;rdquo; CuPy is a GPU version of NumPy/SciPy, allowing data processing on GPUs. Its APIs are highly compatible with its original counterparts.</description>
+    </item>
+    
     <item>
       <title>PFN2023夏季インターン参加記</title>
       <link>https://shino16.github.io/blog/post/work/intern-pfn/</link>

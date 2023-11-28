@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Aliens DP の視覚的な説明と出題例 - shino16</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="shino16" /><meta name="description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="https://shino16.github.io/blog/post/algo/aliens_dp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.c9cedc833526a91ee1d9988d16493ed2bb04090270bc9d133d142865cd755421.css" rel="stylesheet">
+<link href="/blog/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/blog/css/custom.css">
+
+
+<meta property="og:title" content="Aliens DP の視覚的な説明と出題例" />
+<meta property="og:description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shino16.github.io/blog/post/algo/aliens_dp/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-28T02:30:00+00:00" />
+<meta property="article:modified_time" content="2023-11-28T02:30:00+00:00" />
+
+<meta itemprop="name" content="Aliens DP の視覚的な説明と出題例">
+<meta itemprop="description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし"><meta itemprop="datePublished" content="2023-11-28T02:30:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-28T02:30:00+00:00" />
+<meta itemprop="wordCount" content="1895">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aliens DP の視覚的な説明と出題例"/>
+<meta name="twitter:description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+</head>
+<body onload="onload()">
+  <script>
+  function onload() {
+    document.getElementById("footer-email").setAttribute("href", "mailto:" + "masatosinokawa" + "@" + "gmail.com");
+  }
+  </script>
+  
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">shino16</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">shino16</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Aliens DP の視覚的な説明と出題例</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-11-28 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#例">例</a></li>
+        <li><a href="#tilde-p-の存在">$\tilde p$ の存在</a></li>
+        <li><a href="#tilde-p-の探索">$\tilde p$ の探索</a></li>
+        <li><a href="#二分探索を使う方法">二分探索を使う方法</a></li>
+        <li><a href="#変種f-1k-を求める">変種：$f^{-1}(k)$ を求める</a></li>
+        <li><a href="#実装に関して">実装に関して</a></li>
+        <li><a href="#その他">その他</a></li>
+        <li><a href="#問題例">問題例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    <div class="post-content">
+      <p>Aliens DP (the trick from Aliens) を解説します．</p>
+<p>定義や記号は <a href="https://noshi91.hatenablog.com/#fn-aeff7d60">noshi91 さんの記事</a> に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をしたいかが分かればこの記事を見てください．</p>
+<h2 id="例">例</h2>
+<p>何かをちょうど $k$ 回使うとして，コスト $f(k)$ を最小化する DP を考えます．求めたいものが $\operatorname{dp}[n][k]$ だとすると，状態数は $O(nk)$ です．これを高速化します．</p>
+<p>「ちょうど $k$ 回使う」という制約を一旦忘れ，代わりに「$1$ 回使うたびにコストを $p$ 減らせる」という状況を考えます．つまり，$f(x)$ の代わりに $g(p) = \min_x (f(x)-px)$ の最小化を考えます．与えられた $p$ に対する $g(p)$ の計算では，DP の次元が一つ落ち，状態数が $O(n)$ になって速いです．</p>
+<p>$p$ が $\infty$ に近づくと，$f(x)-px$ を最小化する $x$ は大きくなり，$p$ が $-\infty$ に近づくと $x$ は小さくなります．ここで <strong>$f$ が凸と仮定すると</strong>，$p$ をちょうど良い塩梅 $p=\tilde p$ に決めれば $x=k$ が $f(x)-\tilde p x$ を最小化します．言い換えると，$g(\tilde p) = \min_x(f(x)-\tilde p x) = f(k)-\tilde p k$ を満たす $\tilde p$ が存在します（後述）．</p>
+<p>そのような $\tilde p$ は二分探索/三分探索で発見でき（後述），$f(k) = \tilde p k+g(\tilde p)$ が求まります．すごい．</p>
+<h2 id="tilde-p-の存在">$\tilde p$ の存在</h2>
+<p>以降では $f$ の凸性を仮定します．本来 $f(x)$ は整数 $x$ に対してのみ定義されていますが，線分で補間して折れ線とみなします．</p>
+<p>$g(p)$ は傾き $p$ であるような $f$ の接線の $y$ 切片を与えます（$f$ は微分不可能な点を持ちますが，それっぽいやつ）．</p>
+<p>下図を参照してください．オレンジ色の直線が $f$ の接線です．</p>
+<iframe src="https://www.geogebra.org/calculator/d5v6ww2j?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+<p>$f$ の $x=k$ における傾きを $\tilde p$ にとれば，$x=k$ が $f(x)-\tilde px$ を最小化することになります（ここで凸性を使った）．</p>
+<h2 id="tilde-p-の探索">$\tilde p$ の探索</h2>
+<p>$\tilde p$ を発見する方法を考えます．</p>
+<p>$p$ を適当に選び $g(p)$ を計算すると，傾き $p$ の接線（下図オレンジ色の直線）が分かり，特に $pk+g(p)$ を求めることができます（下図ピンク色の点）．</p>
+<iframe src="https://www.geogebra.org/calculator/snebamzy?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+<p>$f$ の接線は $f$ の下側にある（凸性）ので，$pk+g(p) \leq f(k)$ です．欲しいものは $g(\tilde p) = f(k)-\tilde p k$ を満たす $\tilde p$ であり，$\tilde p k + g(\tilde p) = f(k)$ であることから，$pk+g(p)$ を最大化すればよいです．</p>
+<p>$g(p)=\min_x(f(x)-px)$ は $p$ に関する線形関数の $\min$ なので凹であり，$pk+g(p)$ も凹なので，三分探索/黄金分割探索で $\tilde p$ が発見できます．以上です．</p>
+<h2 id="二分探索を使う方法">二分探索を使う方法</h2>
+<p>$g(p) = \min_x(f(x)-px)$ を何らかの方法 (DP) で求めるとき，この最小化を達成する $x_p^* \in \operatorname{argmin}_x(f(x)-px)$ が一緒に求められるとします (DP の復元で可能)．</p>
+<p>$(x_p^*, f(x_p^*))$（下図ピンク色の点）は傾き $p$ の接線との接点であり，$x_p^*$ は $p$ について単調です．$x_p^*=k$ となるように $p$ を二分探索すれば自動的に $f(x_p^*)=f(k)$ が求まります．</p>
+<iframe src="https://www.geogebra.org/calculator/kexxmzfs?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+<p>なお，$x_p^*$ を $\operatorname{argmin}_x(f(x)-px)$ の中からどのように選ぶかを決めておくことや，二分探索の境界条件に関する注意が必要です．詳細は <a href="https://noshi91.hatenablog.com/#%E3%83%9A%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A3%E5%9B%9E%E6%95%B0%E3%81%AE%E7%AE%A1%E7%90%86">noshi91 さんの記事</a> を参照してください．</p>
+<p>全体的に，このように要約できそうです：</p>
+<blockquote>
+<p>$f$ の凸性から，$f$ の接線に関するいろいろなものが単調または凸になり，二分探索/三分探索で接線の情報を集めていくと点 $(k, f(k))$ の情報が得られる．</p>
+</blockquote>
+<h2 id="変種f-1k-を求める">変種：$f^{-1}(k)$ を求める</h2>
+<p>細かい話は省きますが，同じことをするだけです．接線が分かれば直線 $y=k$ との交点が分かるので三分探索ができ，さらに接点 $(x^*_p, f(x^*_p))$ が分かれば二分探索もできます．$p$ の範囲は正です．</p>
+<iframe src="https://www.geogebra.org/calculator/hdkypgxb?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+<h2 id="実装に関して">実装に関して</h2>
+<p><a href="https://noshi91.hatenablog.com/#fn-aeff7d60">noshi91 さんの記事</a> を参照してください．</p>
+<p>$f$ の値が整数なら，$p$ も整数のものだけ考えればよいです．</p>
+<h2 id="その他">その他</h2>
+<p><strong>凸性の証明</strong></p>
+<p>$f\colon \mathbb{Z} \to \mathbb{R}$ が凸であることを示すには，$2f(x) \geq f(x-1)+f(x+1)$（または $f(x)-f(x-1) \geq f(x+1)+f(x)$）が言えれば十分です．「$x$ が元々大きいと $1$ 増やすのももっと大変だよね」という議論だけでは厳密には足りていません．よくある証明パターンは，$x-1$ に対する構成と $x+1$ に対する構成を部分的に組み替えて $x$ に対する構成を $2$ つ作ることです．</p>
+<p><strong>定義域について</strong></p>
+<p>本記事では $f$ の定義域が有界でしたが，端に $\infty$ を詰めれば $\mathbb{R}$ 全体に対して $f$ を定義できます．こうして得た $f$ も凸性を保ちます．</p>
+<p><strong>Monge について</strong></p>
+<p>Aliens DP を適用するにあたってコストが Monge であることは必要ではありませんが，Monge $\implies$ 凸 は成立します．<a href="https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge">参照</a></p>
+<p><strong>$f(k)$ ではなく $\min{f(x): a \leq x \leq b}$を求めたい</strong></p>
+<p>別の <a href="https://noshi91.hatenablog.com/entry/2022/01/13/001217">noshi91 さんの記事</a> を参照してください．</p>
+<h2 id="問題例">問題例</h2>
+<ul>
+<li><a href="https://codeforces.com/contest/1279/problem/F">ECR79 F</a></li>
+</ul>
+<p>やるだけ．凸性の証明も典型っぽい？</p>
+<ul>
+<li><a href="https://atcoder.jp/contests/abc218/tasks/abc218_h">ABC218 H</a></li>
+</ul>
+<p>同様．解説が $3$ つとも非常に参考になった．</p>
+<ul>
+<li><a href="https://atcoder.jp/contests/arc168/tasks/arc168_e">ARC168 E</a></li>
+</ul>
+<p>最近の問題．Monge ではないが凸だと話題になっていた．</p>
+<ul>
+<li><a href="https://www2.ioi-jp.org/ioi/2016/tasks/day2-aliens-JPN.pdf">IOI2016 Aliens</a> <a href="https://www.luogu.com.cn/problem/P5896">Luogu</a></li>
+</ul>
+<p>Aliens という名前の由来となった問題．難しそう．</p>
+<p><a href="https://codeforces.com/blog/entry/49691?#comment-402753">Codeforces の一連のコメント</a> によると，この問題が出題される何年も前に中国ではこのようなテクニックが一部で知られていたらしい．その人の名前のイニシャルを取って，中国では &ldquo;WQS binary search&rdquo; と呼ばれているようだ．</p>
+
+    </div>
+
+    <footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/blog/post/work/intern-pfn-en/">
+            <span class="next-text nav-default">My PFN 2023 Summer Internship Experience</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="http://twitter.com/shino1609" id="footer-twitter" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://github.com/shino16" id="footer-github" class="iconfont icon-github" title="github"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-pencil"></i></span><span>shino16</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/blog/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/blog/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/blog/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

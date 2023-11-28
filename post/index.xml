@@ -6,7 +6,16 @@
     <description>Recent content in Posts on shino16</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 17 Oct 2023 15:00:00 +0100</lastBuildDate><atom:link href="https://shino16.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Nov 2023 02:30:00 +0000</lastBuildDate><atom:link href="https://shino16.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aliens DP の視覚的な説明と出題例</title>
+      <link>https://shino16.github.io/blog/post/algo/aliens_dp/</link>
+      <pubDate>Tue, 28 Nov 2023 02:30:00 +0000</pubDate>
+      
+      <guid>https://shino16.github.io/blog/post/algo/aliens_dp/</guid>
+      <description>Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし</description>
+    </item>
+    
     <item>
       <title>My PFN 2023 Summer Internship Experience</title>
       <link>https://shino16.github.io/blog/post/work/intern-pfn-en/</link>

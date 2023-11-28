@@ -50,7 +50,7 @@
 <meta itemprop="name" content="Aliens DP の視覚的な説明と出題例">
 <meta itemprop="description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし"><meta itemprop="datePublished" content="2023-11-28T02:30:00+00:00" />
 <meta itemprop="dateModified" content="2023-11-28T02:30:00+00:00" />
-<meta itemprop="wordCount" content="1805">
+<meta itemprop="wordCount" content="1809">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Aliens DP の視覚的な説明と出題例"/>
 <meta name="twitter:description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし"/>
@@ -199,7 +199,7 @@
 <p>そのような $\tilde p$ は二分探索/三分探索で発見でき（後述），$f(k) = \tilde p k+g(\tilde p)$ が求まります．すごい．</p>
 <h2 id="tilde-p-の存在">$\tilde p$ の存在</h2>
 <p>以降では $f$ の凸性を仮定します．本来 $f(x)$ は整数 $x$ に対してのみ定義されていますが，線分で補間して折れ線とみなします．</p>
-<p>$g(p)$ は傾き $p$ であるような $f$ の接線の $y$ 切片を与えます（$f$ は微分不可能な点を持ちますが，それっぽいやつ）．</p>
+<p>$g(p) = \min_x(f(x)-px)$ は傾き $p$ であるような $f$ の接線の $y$ 切片を与えます（$f$ は微分不可能な点を持ちますが，それっぽいやつ）．</p>
 <p>下図を参照してください．オレンジ色の直線が $f$ の接線です．</p>
 <iframe src="https://www.geogebra.org/calculator/d5v6ww2j?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
 <p>$f$ の $x=k$ における傾きを $\tilde p$ にとれば，$x=k$ が $f(x)-\tilde px$ を最小化することになります（ここで凸性を使った）．</p>
@@ -222,18 +222,18 @@
 <p>$f$ の値が整数なら，$p$ も整数のものだけ考えればよいです．</p>
 <h2 id="その他">その他</h2>
 <p><strong>凸性の証明</strong></p>
-<p>$f\colon \mathbb{Z} \to \mathbb{R}$ が凸であることを示すには，$2f(x) \geq f(x-1)+f(x+1)$（または $f(x)-f(x-1) \geq f(x+1)+f(x)$）が言えれば十分です．「$x$ が元々大きいと $1$ 増やすのももっと大変だよね」という議論だけでは厳密には足りていません．よくある証明パターンは，$x-1$ に対する構成と $x+1$ に対する構成を部分的に組み替えて $x$ に対する構成を $2$ つ作ることです．</p>
+<p>$f\colon \mathbb{Z} \to \mathbb{R}$ が凸であることを示すには，$2f(x) \leq f(x-1)+f(x+1)$（または $f(x)-f(x-1) \leq f(x+1)+f(x)$）が言えれば十分です．「$x$ が元々大きいと $1$ 増やすのももっと大変だよね」という議論だけでは厳密には足りていません．よくある証明パターンは，$x-1$ に対する構成と $x+1$ に対する構成を部分的に組み替え，$x$ に対する構成を $2$ つ作ることです．</p>
 <p><strong>定義域について</strong></p>
 <p>本記事では $f$ の定義域が有界でしたが，端に $\infty$ を詰めれば $\mathbb{R}$ 全体に対して $f$ を定義できます．こうして得た $f$ も凸性を保ちます．</p>
 <p><strong>Monge について</strong></p>
 <p>Aliens DP を適用するにあたってコストが Monge であることは必要ではありませんが，Monge $\implies$ 凸 は成立します．<a href="https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge">参照</a></p>
-<p><strong>$f(k)$ ではなく $\min{f(x): a \leq x \leq b}$ を求めたい</strong></p>
+<p><strong>$f(k)$ ではなく $\min\{f(x): a \leq x \leq b\}$ を求めたい</strong></p>
 <p>別の <a href="https://noshi91.hatenablog.com/entry/2022/01/13/001217">noshi91 さんの記事</a> を参照してください．</p>
 <h2 id="問題例">問題例</h2>
 <ul>
 <li><a href="https://codeforces.com/contest/1279/problem/F">ECR79 F</a></li>
 </ul>
-<p>やるだけ．凸性の証明も典型っぽい？</p>
+<p>やるだけ．凸性の証明も典型っぽい。</p>
 <ul>
 <li><a href="https://atcoder.jp/contests/abc218/tasks/abc218_h">ABC218 H</a></li>
 </ul>

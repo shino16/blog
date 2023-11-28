@@ -50,7 +50,7 @@
 <meta itemprop="name" content="Aliens DP の視覚的な説明と出題例">
 <meta itemprop="description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし"><meta itemprop="datePublished" content="2023-11-28T02:30:00+00:00" />
 <meta itemprop="dateModified" content="2023-11-28T02:30:00+00:00" />
-<meta itemprop="wordCount" content="1895">
+<meta itemprop="wordCount" content="1807">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Aliens DP の視覚的な説明と出題例"/>
 <meta name="twitter:description" content="Aliens DP (the trick from Aliens) を解説します． 定義や記号は noshi91 さんの記事 に概ね準拠しています．Aliens DP の使い方はこの記事に書いてあることが全てなので，何をし"/>
@@ -214,10 +214,6 @@
 <p>$(x_p^*, f(x_p^*))$（下図ピンク色の点）は傾き $p$ の接線との接点であり，$x_p^*$ は $p$ について単調です．$x_p^*=k$ となるように $p$ を二分探索すれば自動的に $f(x_p^*)=f(k)$ が求まります．</p>
 <iframe src="https://www.geogebra.org/calculator/kexxmzfs?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
 <p>なお，$x_p^*$ を $\operatorname{argmin}_x(f(x)-px)$ の中からどのように選ぶかを決めておくことや，二分探索の境界条件に関する注意が必要です．詳細は <a href="https://noshi91.hatenablog.com/#%E3%83%9A%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A3%E5%9B%9E%E6%95%B0%E3%81%AE%E7%AE%A1%E7%90%86">noshi91 さんの記事</a> を参照してください．</p>
-<p>全体的に，このように要約できそうです：</p>
-<blockquote>
-<p>$f$ の凸性から，$f$ の接線に関するいろいろなものが単調または凸になり，二分探索/三分探索で接線の情報を集めていくと点 $(k, f(k))$ の情報が得られる．</p>
-</blockquote>
 <h2 id="変種f-1k-を求める">変種：$f^{-1}(k)$ を求める</h2>
 <p>細かい話は省きますが，同じことをするだけです．接線が分かれば直線 $y=k$ との交点が分かるので三分探索ができ，さらに接点 $(x^*_p, f(x^*_p))$ が分かれば二分探索もできます．$p$ の範囲は正です．</p>
 <iframe src="https://www.geogebra.org/calculator/hdkypgxb?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
